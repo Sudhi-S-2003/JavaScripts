@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+</head>
+<body>
+    <h2 id="welcome"></h2>
+    <form action="">
+        <input type="text" id="name" placeholder="Enter your name" required>
+        <button type="button" onclick="SetStorage()">submit</button>
+    </form>
+    <script>
+        let dname = localStorage.getItem('Name');
+        if (dname != null) {
+            document.getElementById('welcome').innerHTML = `welcome <span style="color: green;" id="dname">${dname}</span> <button style="background-color: red;" onclick="clearstorage()" type="button"> logout</button>`;     
+           } else {
+            document.getElementById('welcome').innerText = "Login Page";
+        }
+
+        function SetStorage(){
+            let name = document.getElementById('name').value;
+            if (name.trim() != "") {
+            localStorage.setItem("Name", name);
+            document.getElementById('welcome').innerHTML = `welcome <span style="color: green;" >${name}</span> <button style="background-color: red;" onclick="clearstorage()" type="button" >logout</button>`;
+        }
+    }
+        function clearstorage() {
+            localStorage.removeItem('Name');
+            document.getElementById('welcome').innerText = "Login Page";
+        }
+
+        console.log(dname);
+    </script>
+</body>
+</html>
