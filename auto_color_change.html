@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background color change</title>
+</head>
+<body>
+    <script>
+        
+function randint(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+        setInterval(() => {
+            let r = randint(0, 255);
+                let g = randint(0, 255);
+                let b = randint(0, 255);
+
+                console.log(r, g, b);
+               document.body.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
+               document.body.innerHTML="<center style='font-size:50px; font-weight:600;padding-top:20%; '>rgb("+ r + "," + g + "," + b +")</b>";
+        }, 700);
+    </script>
+</body>
+</html>
